@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Abbiamo bisogno di un sito web per un'agenzia di viaggi!
+
+In questa pagina aggiungerai destinazioni di posti che sogni di visitare in futuro.
+
+Il progetto non richiede alcuna customizzazione di CSS, dovrai crearlo interamente usando le classi di bootstrap, sia per quello che riguarda il layout che lo stile.
+
+
+Testa frequentemente il tuo lavoro nelle 3 principali risoluzioni (mobile, tablet, desktop) usando i developer tools del browser nella sezione emulazione device, per una maggiore precisione.
+
+Inizia utilizzando i componenti esistenti di Bootstrap 5 per creare la tua pagina (modificali all'occorrenza utilizzando le utility classes di bootstrap: colori, spazi, margini, dimensioni etc...)
+Usa container > row > col-* in questo ordine per ottenere un layout responsive perfetto.
+
+Esercizi:
+
+1) Implementa una navbar con questi elementi di menu:
+Home
+Saldi
+Welcome Summer
+Last Minute
+Recensioni
+
+Collegherai ogni sezione della pagina agli elementi del menu corrispondenti. 
+
+2) Aggiungi un logo alla navbar, un qualsiasi logo di agenzia di viaggi, anche inventata.
+
+3) Aggiungi una sezione introduttiva con il nome, il payoff dell'agenzia, 
+una breve descrizione in corsivo e una call-to-action (bottone) "Prenota ora" di colore azzurro chiaro e testo bianco e grassetto
+
+Il background della sezione sarà grigio chiaro e con bordi arrotondati e del padding generoso all'interno
+
+4) Implementa la sezione "Saldi". Qui mostrerai 4 destinazioni.
+
+In questa sezione dovranno esserci:
+
+4 card per destinazioni per linea a schermo grande - desktop (quattro sulla stessa linea)
+3 card per destinazioni per linea a schermo medio  - tablet  (una dovrà scomparire)
+2 card per destinazioni per linea a schermo piccolo - mobile (due per linea)
+
+le card avranno un bordo di 2px azzurro chiaro, il bottone azzurro chiaro e testo default
+
+5) Implementa la sezione "Welcome Summer". Qui mostrerai 6 destinazioni al tuo utente. (nessun bordo, ma stesso stile dei bottoni precedenti)
+
+In questa sezione dovranno esserci:
+
+6 card per destinazioni per linea a schermo extra large
+3 card per destinazioni per linea a schermo grande (desktop)
+2 card per destinazioni per linea a schermo medio (tablet)
+2 card per destinazioni per linea a schermo piccolo (mobile)
+
+6) Implementa la sezione "Offerta del giorno". Qui avrai:
+
+66% dello spazio dedicato all'immagine del luogo di destinazione
+33% dedicato al nome, date, prezzo e un badge con "best offer" come testo
+
+l'immagine avrà i bordi arrotondati e un'ombra leggera
+per il contenuto: il nome dovrà essere più grande del resto,
+le date dovranno essere formattate con font "monospace",
+il prezzo dovrà essere definito come "lead"
+e il badge sarà scuro
+
+
+7) Rendi invisibile la sezione "Offerta del giorno" su schermi piccoli.
+
+8) Aggiungi nella sezione "Welcome Summer" un'ombra grande ad ogni card.
+
+9) Crea una sezione "Last Minute", in cui mostrerai 6 immagini delle destinazioni last minute come rettangoli ombreggiati dai bordi arrotondati, senza testo. Rendile responsive come preferisci!
+
+10) Crea una sezione "Recensioni", dove l'utente potrà trovare alcuni feedback da utenti fittizi. 
+Piccola immagine tonda a sinistra con bordo 2px azzurro, nome utente e recensione a destra
+
+11) Crea un footer con le informazioni dell'agenzia e un bottone "Contattaci".
+
+
+
+EXTRAS
+
+12) Crea un bottone vicino ad ogni sezione per collassarla e riaprirla se premuto.
+
+13) Crea la possibilità di contare il numero di "viaggi" presenti sulla pagina e visualizzare il risultato in un alert.
+
+14) Crea un modale con un campo email e un messaggio.
+
+15) Quando l'utente cliccherà su "Contattaci", il modale dovrà essere visualizzato.
+
+16) Crea una funzione che aggiunga un badge con la scritta "HOT" su ognuna delle offerte "Welcome Summer" posizionato in alto a destra.
+
+17) Crea una funzione che rimuova tutte le "card" dalla pagina
+
+-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand me-5" href="#">
+          <img
+            src="https://media.istockphoto.com/id/1223615262/it/vettoriale/viaggio-scritte-vettoriali-in-bianco-e-nero-su-sfondo-bianco-parola-logo-per-agenzia-di.jpg?s=2048x2048&w=is&k=20&c=weN4G5zbIVGSuPMiHLAu7Rvf_gRgO8kpZZb7_JcxOus="
+            alt="logo azienda"
+            height="50"
+        /></a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li></li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Saldi</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Welcome Summer
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Another action</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Last Minute</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Recensioni</a>
+            </li>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="bg-primary row p-3 rounded">
+        <div class="col-12">
+          <h1>Travel</h1>
+          <hr />
+          <h2>Inizia una nuova avventura con noi</h2>
+        </div>
+        <div class="col-2 ms-auto">
+          <button class="btn bg-primary-subtle">Prenota subito</button>
+        </div>
+      </div>
+      <h2>Saldi</h2>
+      <div class="row g-2">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card border border-info-subtle border-2">
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card border border-info-subtle border-2">
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card border border-info-subtle border-2">
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 d-md-none d-lg-flex">
+          <div class="card border border-info-subtle border-2">
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2>Welcome summer</h2>
+      <div class="row g-3">
+        <div class="col-6 col-lg-4">
+          <div class="card position-relative border-0 shadow">
+            <span
+              class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+            >
+              HOT
+            </span>
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4">
+          <div class="card position-relative border-0 shadow">
+            <span
+              class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+            >
+              HOT
+            </span>
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4">
+          <div class="card position-relative border-0 shadow">
+            <span
+              class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+            >
+              HOT
+            </span>
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4">
+          <div class="card position-relative border-0 shadow">
+            <span
+              class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+            >
+              HOT
+            </span>
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4">
+          <div class="card position-relative border-0 shadow">
+            <span
+              class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+            >
+              HOT
+            </span>
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4">
+          <div class="card position-relative border-0 shadow">
+            <span
+              class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+            >
+              HOT
+            </span>
+            <img
+              src="https://images.unsplash.com/photo-1698414126647-6c72b0e2dbf8?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              class="card-img-top object-fit-cover"
+              height="200px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-none d-md-block">
+        <h2>Offerta del giorno</h2>
+        <div class="row align-items-center">
+          <div class="col-6 col-lg-9">
+            <img
+              class="img-fluid object-fit-cover w-100 shadow-sm rounded"
+              src="https://images.unsplash.com/photo-1698734419287-2fc55dcf344f?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </div>
+          <div class="col-6 col-lg-3">
+            <h3 class="fs-1">Corfù</h3>
+            <p class="font-monospace">16.11.23-20.11.23</p>
+            <p>Appartamento a partire da 300$!!</p>
+            <button class="btn bg-black text-light">Best Offer</button>
+          </div>
+        </div>
+      </div>
+      <h2>Day offer</h2>
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="3"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="4"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="5"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://images.unsplash.com/photo-1695765189584-046b776809cb?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.unsplash.com/photo-1695765189584-046b776809cb?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.unsplash.com/photo-1695765189584-046b776809cb?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.unsplash.com/photo-1695765189584-046b776809cb?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.unsplash.com/photo-1695765189584-046b776809cb?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.unsplash.com/photo-1695765189584-046b776809cb?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <h2>Recensioni</h2>
+      <div class="row">
+        <div class="col-1 p-3">
+          <img
+            class="rounded-circle object-fit-cover"
+            src="https://images.unsplash.com/photo-1697016632998-af254f0c3153?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2Mnx8fGVufDB8fHx8fA%3D%3D"
+            width="60px"
+            height="60px"
+            alt="avatar"
+          />
+        </div>
+        <div class="col-11">
+          <h3>Username</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            cupiditate reiciendis eos sequi, deserunt libero dolorum! Totam et
+            nam, assumenda, maiores ratione est molestias cupiditate sapiente
+            aspernatur minus quisquam voluptates! Possimus minus harum odio nam
+            delectus veritatis sunt esse enim. Recusandae porro quaerat in animi
+            tenetur sit facere ea obcaecati, hic dicta! Est sint quasi deleniti
+            accusamus placeat minima culpa! Pariatur mollitia repellendus iste
+            perspiciatis dolores fugit impedit, quam, sunt fuga at ullam dolore
+            eaque! Eum ullam tempore aut odio, recusandae eos soluta quidem qui
+            error accusantium. Deserunt, praesentium minima.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1 p-3">
+          <img
+            class="rounded-circle object-fit-cover"
+            src="https://images.unsplash.com/photo-1697016632998-af254f0c3153?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2Mnx8fGVufDB8fHx8fA%3D%3D"
+            width="60px"
+            height="60px"
+            alt="avatar"
+          />
+        </div>
+        <div class="col-11">
+          <h3>Username</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            cupiditate reiciendis eos sequi, deserunt libero dolorum! Totam et
+            nam, assumenda, maiores ratione est molestias cupiditate sapiente
+            aspernatur minus quisquam voluptates! Possimus minus harum odio nam
+            delectus veritatis sunt esse enim. Recusandae porro quaerat in animi
+            tenetur sit facere ea obcaecati, hic dicta! Est sint quasi deleniti
+            accusamus placeat minima culpa! Pariatur mollitia repellendus iste
+            perspiciatis dolores fugit impedit, quam, sunt fuga at ullam dolore
+            eaque! Eum ullam tempore aut odio, recusandae eos soluta quidem qui
+            error accusantium. Deserunt, praesentium minima.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1 p-3">
+          <img
+            class="rounded-circle object-fit-cover"
+            src="https://images.unsplash.com/photo-1697016632998-af254f0c3153?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2Mnx8fGVufDB8fHx8fA%3D%3D"
+            width="60px"
+            height="60px"
+            alt="avatar"
+          />
+        </div>
+        <div class="col-11">
+          <h3>Username</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            cupiditate reiciendis eos sequi, deserunt libero dolorum! Totam et
+            nam, assumenda, maiores ratione est molestias cupiditate sapiente
+            aspernatur minus quisquam voluptates! Possimus minus harum odio nam
+            delectus veritatis sunt esse enim. Recusandae porro quaerat in animi
+            tenetur sit facere ea obcaecati, hic dicta! Est sint quasi deleniti
+            accusamus placeat minima culpa! Pariatur mollitia repellendus iste
+            perspiciatis dolores fugit impedit, quam, sunt fuga at ullam dolore
+            eaque! Eum ullam tempore aut odio, recusandae eos soluta quidem qui
+            error accusantium. Deserunt, praesentium minima.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1 p-3">
+          <img
+            class="rounded-circle object-fit-cover"
+            src="https://images.unsplash.com/photo-1697016632998-af254f0c3153?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2Mnx8fGVufDB8fHx8fA%3D%3D"
+            width="60px"
+            height="60px"
+            alt="avatar"
+          />
+        </div>
+        <div class="col-11">
+          <h3>Username</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            cupiditate reiciendis eos sequi, deserunt libero dolorum! Totam et
+            nam, assumenda, maiores ratione est molestias cupiditate sapiente
+            aspernatur minus quisquam voluptates! Possimus minus harum odio nam
+            delectus veritatis sunt esse enim. Recusandae porro quaerat in animi
+            tenetur sit facere ea obcaecati, hic dicta! Est sint quasi deleniti
+            accusamus placeat minima culpa! Pariatur mollitia repellendus iste
+            perspiciatis dolores fugit impedit, quam, sunt fuga at ullam dolore
+            eaque! Eum ullam tempore aut odio, recusandae eos soluta quidem qui
+            error accusantium. Deserunt, praesentium minima.
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center bg-dark p-5">
+      <h3 class="text-light">Travel-travel</h3>
+      <button class="btn bg-primary-subtle text-dark">Contattaci</button>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
