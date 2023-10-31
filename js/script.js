@@ -12,3 +12,10 @@ alertText.innerText = `ci sono ${travels.length + 1} viaggi`;
 alertBtn.addEventListener("click", function () {
   alert.classList.add("d-none");
 });
+
+const stopTravel = document.getElementById("stop-travel");
+console.log(stopTravel);
+
+stopTravel.addEventListener("click", function () {
+  travels.forEach(travel => travel.classList.add("d-none"));
+});
